@@ -9,7 +9,7 @@ function App() {
 
   useEffect(function(){
     setIsLoading(true);
-    axios.get('http://localhost:4000/v1')
+    axios.get('https://todol-ist-api.herokuapp.com/v1')
       .then(function(response){
         setTasks(response.data);
         setIsLoading(false);
@@ -26,7 +26,7 @@ function App() {
   function onAddTask(e){
     e.preventDefault();
     setIsLoading(false);
-    axios.post('http://localhost:4000/v1', { task })
+    axios.post('https://todol-ist-api.herokuapp.com/v1', { task })
       .then(function(response){
         console.log(response, { task })
       })
@@ -41,7 +41,7 @@ function App() {
 
   function onDelete(id){
     setIsLoading(false);
-    axios.delete('http://localhost:4000/v1', { data: { id } } )
+    axios.delete('https://todol-ist-api.herokuapp.com/v1', { data: { id } } )
       .then(function(response){
         console.log(response);
       })
